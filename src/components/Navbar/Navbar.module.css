@@ -1,0 +1,5 @@
+.navbar {
+  grid-area: navbar;
+  background-color: chocolate;
+  border-radius: 5px;
+}
