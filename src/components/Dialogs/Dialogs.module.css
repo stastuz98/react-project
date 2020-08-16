@@ -1,17 +1,5 @@
 .dialogs {
-  grid-area: dialogs;
-  /*display: grid;*/
-  grid-template-areas:
-  'header header header'
-  'navbar dialogs dialogs';
-}
-
-@media (max-width: 640px){
-  .app {
-    grid-template-columns: 1fr 2fr;
-    grid-template-areas: 
-    'header header'
-    'navbar navbar'
-    'dialogs dialogs';
-  }
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  padding: 10px;
 }

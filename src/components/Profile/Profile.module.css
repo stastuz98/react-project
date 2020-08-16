@@ -1,9 +1,6 @@
 .profile {
+  width: 900px;
   grid-area: profile;
   background-color: blueviolet;
   border-radius: 5px;
-}
-
-.profile div img {
-  height: 100px;
 }

@@ -1,0 +1,16 @@
+h3 {
+    text-align: center;
+}
+
+button {
+  padding: 10px;
+  margin: 10px;
+}
+
+textarea {
+    margin-left: 10px;
+}
+
+.posts {
+    padding: 10px;
+}

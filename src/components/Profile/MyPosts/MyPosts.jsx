@@ -1,15 +1,19 @@
 import React from 'react';
 import Post from './Post/Post'
+import mystyle from './MyPosts.module.css'
 
-const MyPosts = () => {
+const MyPosts = (props) => {
+    let postsElements = props.posts.map(item => <Post text={item.text} like={item.like} />)
     return (
         <div>
-            <div>My posts</div>
+            <div>
+                <h3>My posts</h3>
+            </div>
             <textarea cols="60" rows="5"></textarea>
-            <button>Опубликовать</button>
-            <Post text='Тварь ебаная!' like='20'/>
-            <Post text='Мусора пидарасы' like='12'/>
-            <Post text='Ебнисся.' like='15'/>
+            <div><button>Опубликовать</button></div>
+            <div className={mystyle.posts}>
+                {postsElements}
+            </div>
         </div>
     );
 }

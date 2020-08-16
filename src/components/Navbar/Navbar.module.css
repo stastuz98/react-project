@@ -1,5 +1,23 @@
 .navbar {
+  width: 300px;
   grid-area: navbar;
   background-color: chocolate;
   border-radius: 5px;
+}
+
+.navbar a {
+  text-decoration: none;
+}
+
+.navbar div {
+  padding: 10px;
+}
+
+.navbar a.active {
+  color: gold;
+}
+
+.friends {
+  display: block;
+  text-align: center;
 }

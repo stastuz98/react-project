@@ -1,15 +1,20 @@
 import React from 'react';
 import mystyle from './Navbar.module.css'
+import { NavLink } from 'react-router-dom';
+import Friends from './Friends/Friends'
 
-const Nav = () => {
+const Nav = (props) => {
     return (
         <nav className={mystyle.navbar}>
             <div>
-                <a href='/profile'>Профиль</a><br></br>
-                <a href='/dialogs'>Сообщения</a><br></br>
-                <a href='/news'>Новости</a><br></br>
-                <a href='/music'>Музыка</a><br></br><br></br>
-                <a href='/settings'>Настройки</a></div>
+                <NavLink to='/profile' activeClassName={mystyle.active}>Профиль</NavLink><br />
+                <NavLink to='/dialogs' activeClassName={mystyle.active}>Сообщения</NavLink><br />
+                <NavLink to='/news' activeClassName={mystyle.active}>Новости</NavLink><br />
+                <NavLink to='/music' activeClassName={mystyle.active}>Музыка</NavLink><br /><br />
+                <NavLink to='/settings' activeClassName={mystyle.active}>Настройки</NavLink><br />
+                <NavLink to='/friends' className={mystyle.friends} activeClassName={mystyle.active}>Друзья</NavLink>
+            </div>
+            <Friends friends={props.friends}/>
         </nav>
     );
 }

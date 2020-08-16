@@ -1,0 +1,21 @@
+.friends {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-left: 10px;
+}
+
+.friends a {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.friendItem{
+    margin-left: 10px;
+}
+
+.friend {
+    width: 50px;
+    height: 50px;
+    background-color: cyan;
+    border-radius: 40px;
+}
