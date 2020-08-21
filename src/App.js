@@ -18,7 +18,12 @@ const App = (props) => {
         <Navbar friends={props.state.navBar} />
         <div className={mystyle.profile}>
           <Route path='/profile' render={() => <Profile posts={props.state.profilePage.posts} />} />
-          <Route path='/dialogs' render={() => <Dialogs dialogs={props.state.messagesPage.dialogs} messages={props.state.messagesPage.messages} />} />
+          <Route path='/dialogs' render={() => <Dialogs
+                                                  dialogs={props.state.messagesPage.dialogs}
+                                                  messages={props.state.messagesPage.messages}
+                                                  newMessage={props.state.messagesPage.newMessage}
+                                                  addMessage={props.addMessage}
+                                                  changeMessage={props.changeMessage}/>} />
           <Route path='/news' component={News} />
           <Route path='/music' component={Music} />
           <Route path='/settings' component={Settings} />
