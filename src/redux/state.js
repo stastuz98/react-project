@@ -1,4 +1,6 @@
-import rerender from '../render';
+let rerender = () => {
+    console.log('State change!')
+}
 
 let state = {
     messagesPage: {
@@ -31,20 +33,26 @@ let state = {
     ]
 };
 
+window.state = state;
+
 {/*Добавление сообщения в диалог*/}
-export let addMessage = () => {
+export const addMessage = () => {
     let newMessage = {
         id: 5,
         message: state.messagesPage.newMessage,
     };
     state.messagesPage.messages.push(newMessage);
     state.messagesPage.newMessage = '';
-    rerender(state);
+    rerender();
 };
 
-export let changeMessage = textInTextarea => {
+export const changeMessage = textInTextarea => {
     state.messagesPage.newMessage = textInTextarea;
-    rerender(state);
+    rerender();
 }
+
+export const subscribe = (observer) => {
+    rerender = observer;
+};
 
 export default state;

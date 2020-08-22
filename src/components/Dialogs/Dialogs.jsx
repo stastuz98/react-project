@@ -13,7 +13,6 @@ const Dialogs = (props) => {
     let changeMessage = () => {
         let text = textareaElement.current.value;
         props.changeMessage(text);
-        console.log(textareaElement.current.value);
     };
 
     return (
