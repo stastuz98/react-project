@@ -2,17 +2,25 @@ import React from 'react';
 import mystyle from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
+import {addMessageActionCreator, changeMessageActionCreator} from './../../redux/state';
+
 
 let textareaElement = React.createRef();
 
 const Dialogs = (props) => {
     let dialogsElements = props.dialogs.map(item => <DialogItem name={item.name} id={item.id} />);
     let messageElements = props.messages.map(item => <Message message={item.message} />);
-
+   
     {/*отправление сообщения в state*/}
     let changeMessage = () => {
         let text = textareaElement.current.value;
-        props.changeMessage(text);
+        let action = changeMessageActionCreator(text);
+        props.dispatch(action);
+    };
+
+    let sendMessage = () => {
+        let action = addMessageActionCreator();
+        props.dispatch(action);
     };
 
     return (
@@ -24,12 +32,13 @@ const Dialogs = (props) => {
                 {messageElements}
                 <textarea cols="60"
                           rows="5"
+                          placeholder='Enter your message: '
                           ref={textareaElement}
-                          value={props.newMessage}
+                          value={props.newMessageBody}
                           onChange={changeMessage}>
                 </textarea>
                 <div>
-                    <button onClick={props.addMessage}>Send</button>
+                    <button onClick={sendMessage}>Send</button>
                 </div>
             </div>
         </div>

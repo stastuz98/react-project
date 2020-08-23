@@ -9,7 +9,7 @@ import { Route, BrowserRouter } from 'react-router-dom';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
-debugger;
+
 const App = (props) => {
   return (
     <BrowserRouter>
@@ -17,13 +17,14 @@ const App = (props) => {
         <Header />
         <Navbar navBar={props.state.navBar} />
         <div className={mystyle.profile}>
-          <Route path='/profile' render={() => <Profile posts={props.state.profilePage.posts} />} />
+          <Route path='/profile' render={() => <Profile posts={props.state.profilePage.posts} 
+                                                        dispatch={props.dispatch}
+                                                        newPostText={props.state.profilePage.newPostText}/>} />
           <Route path='/dialogs' render={() => <Dialogs
                                                   dialogs={props.state.messagesPage.dialogs}
                                                   messages={props.state.messagesPage.messages}
-                                                  newMessage={props.state.messagesPage.newMessage}
-                                                  addMessage={props.addMessage}
-                                                  changeMessage={props.changeMessage}/>} />
+                                                  newMessageBody={props.state.messagesPage.newMessageBody}
+                                                  dispatch={props.dispatch}/>} />
           <Route path='/news' component={News} />
           <Route path='/music' component={Music} />
           <Route path='/settings' component={Settings} />
@@ -31,6 +32,6 @@ const App = (props) => {
       </div>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
