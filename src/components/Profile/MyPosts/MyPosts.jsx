@@ -1,7 +1,7 @@
 import React from 'react';
 import Post from './Post/Post';
 import mystyle from './MyPosts.module.css';
-import { addPostActionCreator, changePostActionCreator } from './../../../redux/state';
+import { addPostActionCreator, changePostActionCreator } from '../../../redux/reducer/profilePageReducer';
 
 //добавить в пропсы dispatch и ещё что-то
 

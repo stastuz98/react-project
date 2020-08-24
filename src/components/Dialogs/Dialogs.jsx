@@ -2,7 +2,7 @@ import React from 'react';
 import mystyle from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
-import {addMessageActionCreator, changeMessageActionCreator} from './../../redux/state';
+import {addMessageActionCreator, changeMessageActionCreator} from '../../redux/reducer/messagesPageReducer';
 
 
 let textareaElement = React.createRef();
