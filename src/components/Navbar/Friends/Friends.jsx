@@ -12,7 +12,9 @@ const Friend = (props) => {
 }
 
 const Friends = (props) => {
-    let nameOfFriends = props.navBar.map(item => <NavLink to={'/friends/' + item.name}><Friend name={item.name} /></NavLink>)
+    let nameOfFriends = props.navBar.map(item =>
+        <NavLink to={'/friends/' + item.name} key={item.id}>
+            <Friend name={item.name} /></NavLink>)
     return (
         <nav className={mystyle.friends}>
             {nameOfFriends}

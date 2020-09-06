@@ -12,6 +12,7 @@ const Nav = (props) => {
                 <NavLink to='/news' activeClassName={mystyle.active}>Новости</NavLink><br />
                 <NavLink to='/music' activeClassName={mystyle.active}>Музыка</NavLink><br /><br />
                 <NavLink to='/settings' activeClassName={mystyle.active}>Настройки</NavLink><br />
+                <NavLink to='/users' activeClassName={mystyle.active}>Пользователи</NavLink>
                 <NavLink to='/friends' className={mystyle.friends} activeClassName={mystyle.active}>Друзья</NavLink>
             </div>
             <Friends navBar={props.navBar}/>

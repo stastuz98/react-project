@@ -1,0 +1,40 @@
+.user {
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    margin: 20px;
+}
+
+.avatarka {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    margin-left: 20px;
+}
+
+.information {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 80%;
+    border-radius: 10px;
+    border: 1px solid #fff; 
+}
+
+.person {
+    margin: 10px;
+}
+
+.location {
+    margin: 10px;
+}
+
+.currentPage {
+    color: gold;
+}
+
+button {
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    background-color: deepskyblue;
+}
