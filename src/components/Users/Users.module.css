@@ -32,6 +32,14 @@
     color: gold;
 }
 
+.pagination {
+    text-align: center;
+}
+
+.locked {
+    color: red;
+}
+
 button {
     width: 100px;
     height: 40px;

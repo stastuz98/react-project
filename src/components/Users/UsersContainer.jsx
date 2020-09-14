@@ -1,4 +1,4 @@
-import { followAC, setUsersAC, setCurrentPageAC, setTotalUsersCountAC }
+import { followAC, setUsersAC, setCurrentPageAC, setTotalUsersCountAC, startPositionChangeAC }
     from './../../redux/reducer/usersReducer';
 import Users from './Users';
 import { connect } from 'react-redux';
@@ -9,6 +9,7 @@ let mapStateToProps = (store) => {
         totalUsersCount: store.usersPage.totalUsersCount,
         pageSize: store.usersPage.pageSize,
         currentPage: store.usersPage.currentPage,
+        startPosition: store.usersPage.startPosition,
     };
 };
 
@@ -26,6 +27,10 @@ let mapDispatchToProps = (dispatch) => {
         setTotalUsersCount: (totalUsersCount) => {
             dispatch(setTotalUsersCountAC(totalUsersCount));
         },
+        setStartPositionChange: (startPosition) => {
+
+            dispatch(startPositionChangeAC(startPosition))
+        }
     };
 };
 
