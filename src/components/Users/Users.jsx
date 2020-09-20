@@ -1,11 +1,12 @@
 import React from 'react';
 import mystyle from './Users.module.css';
 import userPhoto from '../../assets/images/user.png';
+import { NavLink } from 'react-router-dom';
 
 const Users = (props) => {
     let position = props.position;
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
-    
+
     return <div>
         {<div className={mystyle.pagination}>
             <span className={(position === 1) ? mystyle.locked : false}
@@ -22,8 +23,9 @@ const Users = (props) => {
         {props.users.map(item => {
             return (
                 <div className={mystyle.user}>
-                    <div>
-                        <div className={mystyle.avatarka}><img src={userPhoto} alt="noPhoto" /></div>
+                    <div><NavLink to={'/profile/' + item.id}><div className={mystyle.avatarka}>
+                        {item.photos.large != null ? <img src={item.photos.large} /> : <img src={userPhoto} alt="noPhoto" />}
+                    </div></NavLink>
                         <div><button onClick={() => { props.follow(item.id) }}>
                             {item.followed ? 'Отписаться' : 'Подписаться'}
                         </button>

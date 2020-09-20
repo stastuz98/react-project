@@ -1,6 +1,6 @@
 import React from 'react';
-import { followAC, setUsersAC, setCurrentPageAC, setTotalUsersCountAC,
-    startPositionChangeAC, isFetchingChangeAC } from '../../redux/reducer/usersReducer';
+import { follow, setUsers, setCurrentPage, setTotalUsersCount,
+    setStartPositionChange, isFetchingChange } from '../../redux/reducer/usersReducer';
 import mystyle from './Users.module.css';
 import { connect } from 'react-redux';
 import * as axios from 'axios';
@@ -68,28 +68,9 @@ let mapStateToProps = (store) => {
         currentPage: store.usersPage.currentPage,
         startPosition: store.usersPage.startPosition,
         isFetching: store.usersPage.isFetching,
-    };
-}
-
-let mapDispatchToProps = (dispatch) => {
-    return {
-        follow: (userId) => {
-            dispatch(followAC(userId));
-        },
-        setUsers: (users, totalUsersCount) => {
-            dispatch(setUsersAC(users, totalUsersCount));
-        },
-        setCurrentPage: (currentPage) => {
-            dispatch(setCurrentPageAC(currentPage));
-        },
-        setTotalUsersCount: (totalUsersCount) => {
-            dispatch(setTotalUsersCountAC(totalUsersCount));
-        },
-        setStartPositionChange: (startPosition) => {
-            dispatch(startPositionChangeAC(startPosition))
-        },
-        isFetchingChange: () => dispatch(isFetchingChangeAC())
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersAPIComponent);
+export default connect(mapStateToProps, 
+    { follow, setUsers, setCurrentPage,
+      setTotalUsersCount, setStartPositionChange, isFetchingChange })(UsersAPIComponent);

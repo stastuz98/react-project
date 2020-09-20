@@ -12,7 +12,7 @@ const Post = (props) => {
                 <span>Лайки: {props.like}</span>
             </div><br />
         </div>
-    );
+    )
 }
 
 export default Post;

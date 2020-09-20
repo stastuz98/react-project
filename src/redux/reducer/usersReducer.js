@@ -4,14 +4,16 @@ const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_USERS_COUNT = 'SET-TOTAL-USERS-COUNT';
 const CHANGE_START_POSITION = 'CHANGE-START-POSITION';
 const IS_FETCHING = 'IS-FETCHING';
+const SET_PROFILE_INFO = 'SET-PROFILE-INFO';
 
 let initialUsersPage = {
     users: [],
     totalUsersCount: 0,
-    pageSize: 4,
+    pageSize: 80,
     currentPage: 1,
     startPosition: 1, //для списка pages
     isFetching: false,
+    profile: null,
 }
 
 let usersReducer = (usersPage=initialUsersPage, action) => {
@@ -35,17 +37,19 @@ let usersReducer = (usersPage=initialUsersPage, action) => {
             return { ...usersPage, startPosition: action.startPosition };
         case IS_FETCHING:
             return { ...usersPage, isFetching: !usersPage.isFetching };
+        case SET_PROFILE_INFO:
+            return { ...usersPage, profile: action.profile };
         default:
             return usersPage;
     }
 }
 
-
-export const followAC = id => ({ type: FOLLOW, userId: id });
-export const setUsersAC = users => ({ type: SET_USERS, users });
-export const setTotalUsersCountAC = totalUsersCount => ({ type: SET_TOTAL_USERS_COUNT, totalUsersCount });
-export const setCurrentPageAC = currentPage => ({ type: SET_CURRENT_PAGE, currentPage });
-export const startPositionChangeAC = startPosition => ({ type: CHANGE_START_POSITION, startPosition });
-export const isFetchingChangeAC = () => ({ type: IS_FETCHING })
+export const follow = id => ({ type: FOLLOW, userId: id });
+export const setUsers = users => ({ type: SET_USERS, users });
+export const setTotalUsersCount = totalUsersCount => ({ type: SET_TOTAL_USERS_COUNT, totalUsersCount });
+export const setCurrentPage = currentPage => ({ type: SET_CURRENT_PAGE, currentPage });
+export const setStartPositionChange = startPosition => ({ type: CHANGE_START_POSITION, startPosition });
+export const isFetchingChange = () => ({ type: IS_FETCHING })
+export const setProfileInfo = (profile) => ({ type: SET_PROFILE_INFO, profile})
 
 export default usersReducer;
